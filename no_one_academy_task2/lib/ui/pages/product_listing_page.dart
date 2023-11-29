@@ -52,7 +52,7 @@ class _ProductListingPageState extends State<ProductListingPage> {
       ),
       itemCount: products.length,
       itemBuilder: (context, index) {
-        return ProductItem(product: products[index]);
+        return Expanded(child: ProductItem(product: products[index]));
       },
     );
   }
