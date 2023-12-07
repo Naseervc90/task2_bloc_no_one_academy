@@ -33,11 +33,6 @@ class ProductItem extends StatelessWidget {
                 image: DecorationImage(
                     image: NetworkImage(product.image, scale: 0.7))),
           ),
-          Text(product.title,
-              softWrap: true,
-              maxLines: 2,
-              textAlign: TextAlign.justify,
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
           SizedBox(height: 4),
           Text('\$${product.price}', style: TextStyle(fontSize: 14)),
           SizedBox(height: 4),

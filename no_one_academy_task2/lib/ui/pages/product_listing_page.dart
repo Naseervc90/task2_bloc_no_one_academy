@@ -44,16 +44,27 @@ class _ProductListingPageState extends State<ProductListingPage> {
   }
 
   Widget buildProductList(List<Product> products) {
-    return GridView.builder(
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        crossAxisSpacing: 8.0,
-        mainAxisSpacing: 8.0,
-      ),
-      itemCount: products.length,
-      itemBuilder: (context, index) {
-        return Expanded(child: ProductItem(product: products[index]));
-      },
+    final List prod = products;
+    final List sorted = prod.reversed.toList();
+    final firstProduct = products.first;
+    products.removeAt(0);
+    return Column(
+      children: [
+        ProductItem(product: firstProduct),
+        Expanded(
+          child: GridView.builder(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              crossAxisSpacing: 8.0,
+              mainAxisSpacing: 8.0,
+            ),
+            itemCount: products.length,
+            itemBuilder: (context, index) {
+              return Expanded(child: ProductItem(product: products[index]));
+            },
+          ),
+        ),
+      ],
     );
   }
 
